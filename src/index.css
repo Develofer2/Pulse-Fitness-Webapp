@@ -1,0 +1,114 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Space Grotesk', 'Manrope', ui-sans-serif, sans-serif;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-ink: var(--accent-ink);
+  --color-warn: var(--warn);
+}
+
+:root {
+  --bg: #f4f4ef;
+  --surface: #ffffff;
+  --surface-2: #ecece5;
+  --ink: #12130f;
+  --muted: #5f6158;
+  --line: rgba(18, 19, 15, 0.1);
+  --accent: #c8f031;
+  --accent-fg: #11130a;
+  --accent-ink: #446000;
+  --warn: #b4410f;
+}
+.dark {
+  --bg: #0a0b09;
+  --surface: #141612;
+  --surface-2: #1d201a;
+  --ink: #f3f4ee;
+  --muted: #a0a297;
+  --line: rgba(243, 244, 238, 0.09);
+  --accent: #c8f031;
+  --accent-fg: #11130a;
+  --accent-ink: #c8f031;
+  --warn: #ff9a62;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overscroll-behavior-y: none;
+  }
+  button,
+  a,
+  input,
+  select {
+    -webkit-tap-highlight-color: transparent;
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent-ink);
+    outline-offset: 2px;
+    border-radius: 8px;
+  }
+  input,
+  select {
+    min-height: 44px;
+  }
+}
+
+@layer utilities {
+  .font-num {
+    font-family: var(--font-display);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .shimmer {
+    background-image: linear-gradient(110deg, transparent 30%, rgba(200, 240, 49, 0.35) 50%, transparent 70%);
+    background-size: 250% 100%;
+    animation: shimmer 800ms ease-out 1;
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 150% 0;
+  }
+  to {
+    background-position: -50% 0;
+  }
+}
+
+@keyframes pulse-ring {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
