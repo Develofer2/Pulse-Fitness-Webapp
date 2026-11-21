@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { NavLink, Outlet, useLocation, Link } from 'react-router'
 import { m } from 'motion/react'
-import { Home, Dumbbell, Apple, LineChart, Settings, Sparkles, Activity, WifiOff, Play } from 'lucide-react'
+import { Home, Dumbbell, Apple, LineChart, Settings, Sparkles, WifiOff, Play } from 'lucide-react'
 import { useSession } from '../lib/store'
 import Notices, { useReminders } from './Notices'
 
@@ -47,7 +47,11 @@ export default function Shell() {
 
       <aside className="fixed inset-y-0 left-0 hidden w-64 flex-col border-r border-line bg-surface/60 p-6 md:flex">
         <Link to="/" className="mb-10 flex items-center gap-3 font-display text-xl font-bold">
-          <span className="grid size-10 place-items-center rounded-2xl bg-accent text-accent-fg"><Activity size={22} /></span>
+          <img
+            src={`${import.meta.env.BASE_URL}favicon.png`}
+            alt=""
+            className="size-10 rounded-2xl object-cover"
+          />
           Pulse
         </Link>
         <nav aria-label="Primary" className="flex flex-col gap-1">

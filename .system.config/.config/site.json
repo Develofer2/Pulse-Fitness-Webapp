@@ -1,5 +1,8 @@
 {
   "description": "Pulse is a free, offline-first fitness app: guided workouts, nutrition diary, progress tracking and optional AI coaching. Your data stays on your device.",
+  "icons": {
+    "icon": "/favicon.png"
+  },
   "robots": {
     "index": false
   },
