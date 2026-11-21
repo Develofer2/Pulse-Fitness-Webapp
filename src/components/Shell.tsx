@@ -48,7 +48,7 @@ export default function Shell() {
       <aside className="fixed inset-y-0 left-0 hidden w-64 flex-col border-r border-line bg-surface/60 p-6 md:flex">
         <Link to="/" className="mb-10 flex items-center gap-3 font-display text-xl font-bold">
           <img
-            src={`${import.meta.env.BASE_URL}favicon.png`}
+            src={`${import.meta.env.BASE_URL}icon-192.png`}
             alt=""
             className="size-10 rounded-2xl object-cover"
           />
